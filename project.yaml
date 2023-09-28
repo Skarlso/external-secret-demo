@@ -1,0 +1,23 @@
+apiVersion: mpas.ocm.software/v1alpha1
+kind: Project
+metadata:
+  name: sample-project
+  namespace: mpas-system
+spec:
+  git:
+    commitTemplate:
+      email: 182850+Skarlso@users.noreply.github.com
+      message: Sample commit message
+      name: Gergely Brautigam
+    credentials:
+      secretRef:
+        name: git-sync-secret
+    defaultBranch: main
+    existingRepositoryPolicy: adopt
+    interval: 10m
+    isOrganization: false
+    owner: Skarlso
+    provider: github
+    visibility: public
+  interval: 1m
+  prune: true
